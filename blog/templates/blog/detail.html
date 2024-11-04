@@ -1,32 +1,35 @@
 {% extends "base.html" %}s
 
 {% block page_title %}
-    <h2>{{ post.title }}</h2>
+    <h2 class="py-2">{{ post.title }}</h2>
 {% endblock page_title %}
 
 {% block page_content %}
-    <small>
+    <p class="text-sm py-4">
         {{ post.created_on.date }} | Categories:
         {% for category in post.categories.all %}
             <a href="{% url 'blog_category' category.name %}">
                 {{ category.name }}
             </a>
         {% endfor %}
-    </small>
-    <p>{{ post.body | linebreaks }}</p>
-    <h3>Leave a comment:</h3>
+    </p>
+    <p class="py-4">{{ post.body | linebreaks }}</p>
+    <div class="py-8 gap-8">
+    <h3 class="font-medium">Leave a comment:</h3>
     <form method="post">
         {% csrf_token %}
-        <div>
+        <div class="py-2">
             {{ form.author }}
         </div>
-        <div>
+        <div class="py-2">
             {{ form.body }}
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="text-white px-6 bg-black py-2 rounded-md">Submit</button>
     </form>
+    </div>
 
-    <h3>Comments:</h3>
+    <div class="pb-6">
+    <h3 class="font-medium">Comments:</h3>
     {% for comment in comments %}
         <p>
             On {{ comment.created_on.date }} <b>{{ comment.author }}</b> wrote:
@@ -34,5 +37,6 @@
         <p>
             {{ comment.body | linebreaks }}
         </p>
+    </div>
     {% endfor %}
 {% endblock page_content %}

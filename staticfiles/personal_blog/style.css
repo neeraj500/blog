@@ -1,15 +1,13 @@
 body {
-    background-color: lavender;
+    background-color: lightsalmon;
     font-family: "Overpass", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     max-width: 800px;
     margin: 0 auto;
-
 }
 
-h3 {
-    color: white;
+h1 {
+    color: #FFAC1C;
     font-size: larger;
-
 }
