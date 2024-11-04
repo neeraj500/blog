@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'personal_blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-if DEVELOPMENT_MODE is False:
+if DEVELOPMENT_MODE is True:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.sqlite3",
