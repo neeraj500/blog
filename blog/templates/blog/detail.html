@@ -1,20 +1,28 @@
-{% extends "base.html" %}s
+{% extends "base.html" %}
 
 {% block page_title %}
-    <h2 class="py-2">{{ post.title }}</h2>
+<div class="pt-8">
+<a href="{% url 'blog_index' %}">
+    <p class="text-orange-500 underline underline-offset-1 text-xs">HOME</p>
+</a>
+</div>
+    <h2 class="text-4xl py-8 text-gray-700">{{ post.title }}</h2>
 {% endblock page_title %}
 
 {% block page_content %}
-    <p class="text-sm py-4">
-        {{ post.created_on.date }} | Categories:
+<div>
+    <p class="pb-8 text-sm text-gray-500">
+        {{ post.created_on.date }} | Category:
         {% for category in post.categories.all %}
             <a href="{% url 'blog_category' category.name %}">
-                {{ category.name }}
+                {{ category.name | title }}
             </a>
         {% endfor %}
     </p>
-    <p class="py-4">{{ post.body | linebreaks }}</p>
-    <div class="py-8 gap-8">
+
+    <p class="leading-8 text-gray-700 mb-8">{{ post.body }}</p>
+
+    <div class="mb-8 gap-8">
     <h3 class="font-medium">Leave a comment:</h3>
     <form method="post">
         {% csrf_token %}
@@ -24,11 +32,11 @@
         <div class="py-2">
             {{ form.body }}
         </div>
-        <button type="submit" class="text-white px-6 bg-black py-2 rounded-md">Submit</button>
+        <button type="submit" class="text-white px-6 py-2 rounded-md bg-amber-500 hover:bg-amber-700">Submit</button>
     </form>
     </div>
 
-    <div class="pb-6">
+    <div class="py-6">
     <h3 class="font-medium">Comments:</h3>
     {% for comment in comments %}
         <p>
@@ -39,4 +47,5 @@
         </p>
     </div>
     {% endfor %}
+</div>
 {% endblock page_content %}

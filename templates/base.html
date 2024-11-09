@@ -6,25 +6,14 @@
     <title>My Personal Blog</title>
     <!-- <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css"> -->
     {% tailwind_css %}
-    <link rel="stylesheet" href="{% static 'personal_blog/style.css' %} ">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'personal_blog/style.css' %}">
 </head>
 <body>
-<p class="py-6">
-    nm
-</p>
 
-{% if request.path != "/" %} 
-<a href="{% url 'blog_index' %}">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-        <path fill-rule="evenodd" d="M18 10a.75.75 0 0 1-.75.75H4.66l2.1 1.95a.75.75 0 1 1-1.02 1.1l-3.5-3.25a.75.75 0 0 1 0-1.1l3.5-3.25a.75.75 0 1 1 1.02 1.1l-2.1 1.95h12.59A.75.75 0 0 1 18 10Z" clip-rule="evenodd" />
-    </svg>
-</a>
-{% endif %}
-
-<hr class="border-gray-300">
+<hr class="border-gray-200">
 {% block page_title %}{% endblock page_title %}
 {% block page_content %}{% endblock page_content %}
 </body>
