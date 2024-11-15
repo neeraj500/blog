@@ -1,9 +1,16 @@
 {% extends "base.html" %}
 
-{% block page_content %}
-<p class="py-4 font-medium">
+{% block page_title %}
+<div class="py-4 flex justify-between items-center w-full">
+<p class="font-medium">
     Hello, world!
 </p>
+<a href="{% url 'signup' %}">Sign up</a>
+</div>
+
+{% endblock page_title %}
+
+{% block page_content %}
 
     {% block posts %}
         {% for post in posts %}
